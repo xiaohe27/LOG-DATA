@@ -1,0 +1,22 @@
+Events 
+  p(c1,...,cn) 
+in the specification correspond to events 
+  p,tp=i,ts=t,f1=c1,f2=c2,...,fn=cn
+in the CSV formatted trace, where i is the event' time point and t is
+the timestamp of the event occurrence. See the README file in the
+archive's top-level directory for more details. The event tp(i) in the
+
+The event names and corresponding field names are
+  insert(dbuser,db,participant_id,data_id)
+  delete(dbuser,db,participant_id,data_id)
+  select(dbuser,db,participant_id,data_id)
+  update(dbuser,db,participant_id,data_id)
+  script_start(script)
+  script_end(script)
+  script_svn(script,status,url,rev1,rev2)
+  script_md5(script,md5)
+  commit(url,rev)
+
+Sample trace lines:
+
+

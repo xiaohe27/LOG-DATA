@@ -1,0 +1,44 @@
+Specification (in MFOTL)
+=============
+
+ALWAYS FORALL a, f. 
+ publish(a,f) IMPLIES 
+  (NOT acc_F(a) SINCE[0,*) acc_S(a)) 
+  AND 
+  ONCE[0,10] EXISTS m. 
+   (NOT mgr_F(m,a) SINCE[0,*) mgr_S(m,a)) AND approve(m,f)
+
+
+Informal explanation
+====================
+
+The property represents an approval policy for publishing business
+reports within a company. This is property (P3) from [1].
+
+The property requires that any report must be approved prior to its
+publication. Furthermore, the property asks that the person who
+publishes the report must be an accountant and the person who approves
+the publication must be the accountant’s manager. Finally, the
+approval must happen within at most 10 days before the publication.
+
+The event publish(a,f) denotes the publication of the report f by the
+accountant a. The event approve(m,f) denotes the publishing approval
+of the report f by the manager m. The event mgr_S (m,a) marks the time
+when m starts being a’s manager and the event mgr_F (m,a) marks the
+corresponding finishing time. Analogously, acc_S(a) and acc_F(a) mark
+the starting and finishing times when a is an accountant.
+
+
+Verdict
+=======
+
+The property is not satisfied. In particular, there are four
+violations, namely (in MonPoly's output format [4]):
+
+@91 (time-point 57347): (93,25218)
+@91 (time-point 57348): (51,7848)
+@91 (time-point 57350): (35,19053)
+@91 (time-point 57351): (88,17294)
+
+The first one reads as follows: At timestamp 91, the accountant 93
+published the report 25218 without satisfying the approval policy.

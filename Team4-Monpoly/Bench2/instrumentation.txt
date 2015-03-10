@@ -1,0 +1,16 @@
+Events 
+  p(c1,...,cn) 
+in the specification correspond to events 
+  p,tp=i,ts=t,f1=c1,f2=c2,...,fn=cn
+in the CSV formatted trace, where i is the event' time point and t is
+the timestamp of the event occurrence. See the README file in the
+archive's top-level directory for more details.
+
+The event names and corresponding field names are:
+  trans(c,t,a)
+  auth(e,t)
+
+Sample trace lines:
+  auth,tp=7895,ts=30,e=255,t=29529
+  trans,tp=9567,ts=32,c=1857,t=29529,a=2075
+

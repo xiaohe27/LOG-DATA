@@ -1,0 +1,22 @@
+Events 
+  p(c1,...,cn) 
+in the specification correspond to events 
+  p,tp=i,ts=t,f1=c1,f2=c2,...,fn=cn
+in the CSV formatted trace, where i is the event's time point and t is
+the timestamp of the event occurrence. See the README file in the
+archive's top-level directory for more details. The event tp(i) in the
+specification is an exception, as it has no corresponding event in the
+trace. Instead, tp(i) denotes the time point i of the current event in
+the trace.
+
+The specification event names and corresponding field names are:
+  withdraw(u,a)
+  
+
+
+Sample trace lines:
+  withdraw,tp=0,ts=1,u=u109,a=32
+  withdraw,tp=0,ts=1,u=u438,a=55
+  withdraw,tp=1,ts=2,u=u642,a=58
+  withdraw,tp=1,ts=2,u=u530,a=8
+

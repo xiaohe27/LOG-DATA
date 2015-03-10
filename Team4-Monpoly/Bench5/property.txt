@@ -1,0 +1,41 @@
+Specification (in MFOTL)
+=============
+
+ALWAYS FORALL u, p, d.
+  (insert(u, "db3", p, d) AND NOT d = "[unknown]") IMPLIES
+    ONCE[0,60) (EXISTS u, v. insert(u, "db2", v, d))
+
+
+Informal explanation
+====================
+
+The property comes from on the usage of data in a real world case
+study, namely Nokia's Lausanne Data Collection Campaign [5,6]. This is
+property ins-3-2 from [3] (see README file).
+
+Data uploaded by a phone into database db1 must be propagated to
+databases db2 and db3. In particular, the property requires that data
+may be inserted into db3 only if it was inserted into db2 within the
+last 1 minute.
+
+The event insert(u, db, p, d) denotes an SQL insert operation
+performed on the database db by the database user u, involving the
+campaign participant p and data d.
+
+
+Verdict
+=======
+
+The property is not satisfied. In particular, there are four
+violations, namely (in MonPoly's outptu format [4]):
+
+@1282421302 (time-point 787009): (triggers,60,464910307)
+@1282541204 (time-point 824776): (triggers,4,440921796)
+@1282541310 (time-point 824780): (triggers,118,465493917)
+@1282544151 (time-point 825224): (triggers,98,442134923)
+
+The first one reads as follows: At timestamp 1282421302 (that is, on
+2010-08-21 at 22:08:22), the insert operation by the database user
+"triggers" concerning participant 60 and the data 464910307 does not
+satisfy the requirement.
+

@@ -1,0 +1,77 @@
+All properties are specified in metric first-order temporal logic
+(MFOTL), or in its extension to aggregation operators and function
+symbols. See [1] for a definition of MFOTL and [2] for the definition
+of MFOTL's extension. 
+
+MFOTL's models are temporal structures, that is, sequences of
+timestamped first-order structures. To encode temporal structures as
+event sequences, we assume that each event has two implicit
+parameters, its time point and its timestamp, with the names 'tp' and
+'ts', respectively. (The time point is the index of the structure in
+the sequence.)
+
+Thus, any line in a CSV formatted trace file from these benchmarks has
+the form  
+  p,tp=i,ts=t,f1=v1,f2=v2,...,fn=vn
+where p is the event name, i is its time point, t is the timestamp of
+its occurrence, and v1,...,vn are the values of its parameters.
+
+Events that have the same time point are assumed to be
+unordered. However, events with different time points are assumed to
+be ordered, even if they have the same timestamps.
+
+
+
+
+The traces for benchmarks (B1) to (B4) are synthetically generated.
+The trace for benchmark (B5) comes from a real-world case study,
+presented in [3], and which performs an analysis of data usage during
+the Nokia's Lausanne Data Collection Campaign [5,6] from 2010. Nokia
+kindly allowed us to make this data publicly available.
+
+
+Finally, here are some statistics on the trace files:
+ benchmark    file size   event rates   time span
+        B1         13MB          5000          60
+        B2         13MB          5000          60
+        B3          2MB          1000          60
+        B4         10MB          5000          60
+        B5         14GB             6    36507815
+
+The event rate is the average number of event per timestamp, while the
+time span is the difference between the last and the first timestamp.
+
+
+
+[1] D. Basin, F. Klaedtke, S. Müller. "Monitoring Security Policies
+    with Metric First-order Temporal Logic." Proceedings of the 15th
+    ACM Symposium on Access Control Models and Technologies (SACMAT
+    2010).
+
+[2] D. Basin, F. Klaedtke, S. Marinovic, E.  Zalinescu.  "Monitoring
+    of Temporal First-order Properties with Aggregations." Proceedings
+    of the 4th International Conference on Runtime Verification (RV
+    2013).
+
+[3] D. Basin, M. Harvan, F. Klaedtke, E. Zalinescu. "Monitoring Data
+    Usage in Distributed Systems." IEEE Transactions on Software
+    Engineering, 39(10): 1403-1426, 2013.
+
+[4] D. Basin, M. Harvan, F. Klaedtke, E. Zalinescu. "MONPOLY:
+    Monitoring usage-control policies." Proceedings of the 2nd
+    International Conference on Runtime Verification (RV'11), 2011.
+
+[5] I. Aad and V. Niemi. "NRC data collection campaign and the privacy
+    by design principles." Proceedings of the International
+    Workshop on Sensing for App Phones (PhoneSense), 2010.
+
+[6] J. Laurila, D. Gatica-Perez, I. Aad, J. Blom, O. Bornet, T. M. Tri
+    Do, O. Dousse, J. Eberle, M Miettinen. "From big smartphone data
+    to worldwide research: The Mobile Data Challenge."  Pervasive and
+    Mobile Computing, 9(6), 752-771, 2013.
+
+
+Papers [1-4] can be found at on the authors's home pages or at
+http://www.infsec.ethz.ch/research/projects/mon_enf.
+
+

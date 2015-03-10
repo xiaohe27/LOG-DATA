@@ -1,0 +1,35 @@
+Specification (in MFOTL)
+=============
+
+ALWAYS FORALL c, t, a. 
+  trans(c,t,a) AND 2000 < a  IMPLIES  ONCE[2,21) EXISTS e. auth(e,t)
+
+
+Informal explanation
+====================
+
+The property formalizes a compliance policy for a banking system that
+processes customer transactions. This is property (P5) from [1].
+
+The property requires that executed transactions t of any customer c
+must be authorized by some employee e before they are executed if the
+transferred money a exceeds a given threshold of $2,000.
+
+The event trans(c,t,a) denotes that the client c performs the
+transaction t, transferring the amount a. The event auth(e,t) denotes
+the authorization of the transaction t by the employee e. 
+
+
+Verdict
+=======
+
+The property is not satisfied. In particular, there are three
+violations, namely (in MonPoly's output format [4]):
+
+@92 (time-point 323302): (807,17368,2495)
+@92 (time-point 323303): (3196,26167,2120)
+@92 (time-point 323304): (2552,4409,2151)
+
+The first one reads as follows: At timestamp 92 the transaction 17368
+of the client 807 transferring the amount $2,495 does not satisfy the
+requirement.

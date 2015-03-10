@@ -1,0 +1,23 @@
+Events 
+  p(c1,...,cn) 
+in the specification correspond to events 
+  p,tp=i,ts=t,f1=c1,f2=c2,...,fn=cn
+in the CSV formatted trace, where i is the event' time point and t is
+the timestamp of the event occurrence. See the README file in the
+archive's top-level directory for more details.
+
+The event names and corresponding field names are
+  publish(a,f)
+  approve(m,f)
+  acc_S(a)
+  acc_F(a)
+  mgr_S(m,a)
+  mgr_F(m,a)
+
+
+Sample trace lines:
+  acc_S,tp=550,ts=17,a=84
+  mgr_S,tp=647,ts=19,m=10,a=84
+  approve,tp=650,ts=22,m=10,f=34596
+  publish,tp=2927,ts=32,a=84,f=34596
+
